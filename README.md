@@ -1,0 +1,1 @@
+Include the files for your updated chat client in this folder and delete this file.

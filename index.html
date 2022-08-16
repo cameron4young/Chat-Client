@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>DFTW Chat Client</title>
+	<link rel="stylesheet" href="message style.css" />
+</head>
+<body>
+	<!-- final implementations: search bar, edit feature, animations, and dots only on messages you send -->
+	<dialog id="login_dialog">
+		<form id="login_form" method="dialog">
+			<p>
+				<label>Email or handle:
+					<input autocomplete="email" type="text" name="email" required />
+				</label>
+			</p>
+			<p>
+				<label>Password:
+					<input autocomplete="current-password" type="password" name="password" required />
+				</label>
+			</p>
+			<p>
+				<button>Login</button>
+				<button type="reset" class="close">Cancel</button>
+			</p>
+			<p>
+				<span class="error" aria-live="polite"></span>
+			</p>
+		</form>
+	</dialog>
+
+	<!-- SignUp Form -->
+	<dialog id="signup_dialog">
+		<form id="signup_form" method="dialog">
+			<p>
+				<label>Handle (username):
+					<input type="text" name="handle" required />
+				</label>
+			</p>
+			<p>
+				<label>Email:
+					<input autocomplete="email" type="email" name="email" required />
+				</label>
+			</p>
+			<p>
+				<label>Password:
+					<input autocomplete="new-password" type="password" name="password" required />
+				</label>
+			</p>
+			<p>
+				<button>Sign Up</button>
+				<button type="reset" class="close">Cancel</button>
+			</p>
+			<p>
+				<span class="error" aria-live="polite"></span>
+			</p>
+		</form>
+	</dialog>
+
+	<header>
+		<span class="if-logged-in">Logged in as: <span class="my-username"></span></span>
+		<button id="logout_button" class="logout">Logout</button>
+	</header>
+
+	<section class="logo">
+		<div>
+			<h1>DesignFTW Messenger</h1>
+			<button id="login_button" data-show-dialog="login_dialog" class="login">Login</button>
+			<button id="signup_button" data-show-dialog="signup_dialog" class="signup">Sign Up</button>
+		</div>
+	</section>
+	<main class="if-logged-in">
+		<section class="messenger">
+			<section class="bar">
+				<div class="search">
+					<img class="icon" src="media/search.png">
+					<p id="searchbar" contenteditable="true">
+						Search...
+					</p>
+				</div>
+				<div class="newmsg">
+					<img class="icon" src="media/newmessage.png">
+					<p>New Conversation</p>
+				</div>
+				<dialog id="newConvo">
+					<form id="chat_with_form">
+						<label>
+							Chat with:
+							<input type="text" name="handle" required>
+						</label>
+						<button id="set">Set recipient(s)</button>
+					</form>			
+				</dialog>
+				<dialog id="newMessage" class="notification">
+				</dialog>
+			</section>
+			<section class="list">
+			</section>
+			<section class="if-has-recipient chat">
+				<div class="header">
+					<img class="pfp" src="media/profile.jpeg">
+					<p id="recipientname">Name</p>
+				</div>
+				<div class="chatbox">
+					<div id="messages_list">
+
+					</div>
+				</div>
+				<dialog id="send_image">
+					<input type="file" id="upload" name="image">
+					<button id="submit">Send Image</button>>
+					<button id="cancelsend">Cancel</button>
+				</dialog>
+				<div class="textbar">
+					<div id="tool">
+						<div id="camera">
+							<img src="media/picture icon.png">
+							<!-- <img src="media/picture icon.png"> -->
+						</div>
+					</div>
+					<form id="send_message_form">
+						<label>
+							<textarea class="typeMSG" name="message" required>Type your message...</textarea>
+						</label>
+						<button>Send</button>
+					</form>
+				</div>
+				
+			</section>
+		</section>
+	</main>
+	<script src="src/index.js" type="module"></script>
+</body>
+
+</html>
